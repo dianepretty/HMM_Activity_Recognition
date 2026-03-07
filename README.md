@@ -137,7 +137,7 @@ The model recognises **Walking** and **Jumping** almost perfectly. The main chal
 2. Open `notebook/HMM_Activity_Recognition.ipynb` in Google Colab.
 3. Set `COLAB = True` at the top of the notebook if needed.
 4. Run all cells from top to bottom. The notebook will:
-   - Install the required Python packages (e.g. `hmmlearn`)
+   - Install the required Python packages
    - Load and merge all 50 session folders
    - Extract 25 features per 1‑second window
    - Train the HMM with Baum-Welch
@@ -165,16 +165,16 @@ The model recognises **Walking** and **Jumping** almost perfectly. The main chal
 
 Running the notebook produces the following artefacts:
 
-- `hmm_model.pkl` — trained HMM, feature scaler, and mapping information  
-- `evaluation_results.csv` — per‑class metrics on the test set  
+- `hmm_model.pkl`: Trained HMM, feature scaler, and mapping information  
+- `evaluation_results.csv`: Per‑class metrics on the test set  
 - Figures for qualitative analysis:
-  - `raw_signals.png` — example raw accelerometer/gyroscope traces per activity  
-  - `feature_distributions.png` — distributions of normalised features by activity  
-  - `convergence.png` — Baum-Welch log‑likelihood over iterations  
-  - `transition_matrix.png` — learned state transition probabilities  
-  - `emission_means.png` — Gaussian means per state and feature  
-  - `decoded_sequence.png` — true vs predicted activity sequences on test data  
-  - `confusion_matrix.png` — confusion matrix on unseen test windows
+  - `raw_signals.png`: Example raw accelerometer/gyroscope traces per activity  
+  - `feature_distributions.png`: Distributions of normalised features by activity  
+  - `convergence.png`: Baum-Welch log‑likelihood over iterations  
+  - `transition_matrix.png`: Learned state transition probabilities  
+  - `emission_means.png`: Gaussian means per state and feature  
+  - `decoded_sequence.png`: True vs predicted activity sequences on test data  
+  - `confusion_matrix.png`: Confusion matrix on unseen test windows
 
 
 ## 9. Limitations and Future Work
@@ -183,7 +183,3 @@ Running the notebook produces the following artefacts:
 - **Confusion between low‑motion states:** Still and Standing are difficult to separate based solely on motion, especially when the subject naturally sways while “standing still”. Additional postural or orientation features could help.  
 - **Emission model flexibility:** the current diagonal Gaussian assumption is simple and data‑efficient but may underfit complex motion patterns. Full covariance or Gaussian mixture emissions are natural extensions.  
 - **Model comparison:** discriminative sequence models (e.g. CRFs, RNNs) could be compared against the HMM baseline to quantify the benefits of generative vs discriminative approaches.
-
-See the notebook for detailed plots, intermediate diagnostics, and alternative configurations.
-
-
